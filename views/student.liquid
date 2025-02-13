@@ -9,12 +9,15 @@
 <style>
     section { display: flex;
               align-items: center;
-              flex-direction: column;}
+              flex-direction: column; }
             
     img { width: 30%;
           height: 30%;
           border-radius: 100%;
-          border: 15px solid {{ person.fav_color }};}
+          border: 15px solid {{ person.fav_color }}; }
 </style>
+
+<a href="/kleur">Back</a>
+
 
 {% render 'partials/foot.liquid', squads: squads %}
