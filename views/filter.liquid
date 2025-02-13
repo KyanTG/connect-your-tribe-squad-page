@@ -1,6 +1,13 @@
-{% render 'partials/head.liquid', title: person.name %}
+{% render 'partials/head.liquid', title: 'Squad Page' %}
+
+<section>
+    <h2>Studenten kleur gesorteerd</h2>
+    <a href="/">Back</a>
+</section>
  
-<a href="/">Back</a>
+{% for person in persons %}
+    <a href="/student/{{ person.id }}">, <img src=" {{ person.avatar }}" width="200px" height="200px"></a>
+{% endfor %}
  
 {% render 'partials/foot.liquid', squads: squads %}
  
