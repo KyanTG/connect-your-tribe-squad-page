@@ -93,7 +93,7 @@ app.get('/student/:id', async function (request, response) {
   
   // Render student.liquid uit de views map en geef de opgehaalde data mee als variable, genaamd person
   // Geef ook de eerder opgehaalde squad data mee aan de view
-  response.render('persoon.liquid', {person: personDetailResponseJSON.data, squads: squadResponseJSON.data})
+  response.render('student.liquid', {person: personDetailResponseJSON.data, squads: squadResponseJSON.data})
 })
 
 

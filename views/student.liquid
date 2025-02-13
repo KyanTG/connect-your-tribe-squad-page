@@ -1,0 +1,20 @@
+{% render 'partials/head.liquid', title: 'Squad page' %}
+
+
+<section>
+    <h2> {{ person.name }}</h2>
+    <img class="border-img" src="{{ person.avatar }}">
+</section>
+
+<style>
+    section { display: flex;
+              align-items: center;
+              flex-direction: column;}
+            
+    img { width: 30%;
+          height: 30%;
+          border-radius: 100%;
+          border: 15px solid {{ person.fav_color }};}
+</style>
+
+{% render 'partials/foot.liquid', squads: squads %}
