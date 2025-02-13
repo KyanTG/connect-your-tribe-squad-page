@@ -69,7 +69,7 @@ app.post('/', async function (request, response) {
 
 app.get('/kleur', async function (request, response) {
 
-  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=fav_color&fields=*,squads.squad_id.name,squads.squad_id.cohort&filter={"_and":[{"squads":{"squad_id":{"tribe":{"name":"FDND Jaar 1"}}}},{"squads":{"squad_id":{"cohort":"2425"}}}]}')
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=fav_color')
 
 
   const personResponseJSON = await personResponse.json()
