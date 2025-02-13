@@ -1,6 +1,12 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
-<h2>Students</h2>
+<section>
+  <h2>Students</h2>
+  <select name="filter">
+    <option value="filteren">Filteren</option>
+    <option value="kleur"><a href=""></a>kleur</option>
+  </select>
+</section>
 
   {% for person in persons %}
    <a href="/student/{{ person.id }}">, <img src=" {{ person.avatar }}" width="200px" height="200px"></a>

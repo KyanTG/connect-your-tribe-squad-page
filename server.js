@@ -56,13 +56,29 @@ app.get('/', async function (request, response) {
 
   // Render index.liquid uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
   // Geef ook de eerder opgehaalde squad data mee aan de view
-  response.render('index.liquid', {persons: personResponseJSON.data, squads: squadResponseJSON.data})
+  response.render('homepage.liquid', {persons: personResponseJSON.data, squads: squadResponseJSON.data})
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 app.post('/', async function (request, response) {
   // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
   // Er is nog geen afhandeling van POST, redirect naar GET op /
+  response.redirect(303, '/')
+})
+
+
+app.get('/filter', async function (request, response) {
+
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=*,squads.squad_id.name,squads.squad_id.cohort&filter={"_and":[{"squads":{"squad_id":{"tribe":{"name":"FDND Jaar 1"}}}},{"squads":{"squad_id":{"cohort":"2425"}}}]}')
+
+
+  const personResponseJSON = await personResponse.json()
+
+  response.render('filter.liquid', {persons: personResponseJSON.data, squads: squadResponseJSON.data})
+})
+
+app.post('/', async function (request, response) {
+
   response.redirect(303, '/')
 })
 
@@ -77,7 +93,7 @@ app.get('/student/:id', async function (request, response) {
   
   // Render student.liquid uit de views map en geef de opgehaalde data mee als variable, genaamd person
   // Geef ook de eerder opgehaalde squad data mee aan de view
-  response.render('student.liquid', {person: personDetailResponseJSON.data, squads: squadResponseJSON.data})
+  response.render('persoon.liquid', {person: personDetailResponseJSON.data, squads: squadResponseJSON.data})
 })
 
 
