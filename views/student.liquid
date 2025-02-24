@@ -3,21 +3,9 @@
 
 <section>
     <h2> {{ person.name }}</h2>
-    <img class="border-img" src="{{ person.avatar }}">
+    <img class="border-img" src="{{ person.avatar }}" style="border: 15px solid {{ person.fav_color }};">
+    <a href="/kleur">Back</a>
 </section>
-
-<style>
-    section { display: flex;
-              align-items: center;
-              flex-direction: column; }
-            
-    img { width: 30%;
-          height: 30%;
-          border-radius: 100%;
-          border: 15px solid {{ person.fav_color }}; }
-</style>
-
-<a href="/kleur">Back</a>
 
 
 {% render 'partials/foot.liquid', squads: squads %}
