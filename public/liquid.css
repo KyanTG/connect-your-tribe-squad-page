@@ -1,4 +1,6 @@
 
+
+
 img {
     border: 1px solid black;
     border-radius: 100%;
@@ -6,7 +8,6 @@ img {
 
 
 body {
-
 
     section  { 
         display: flex;
@@ -28,3 +29,22 @@ body {
         }
     }   
 }
+
+.slidecontainer input {
+    -webkit-appearance:none;
+    margin-top: 300px;
+    border-radius: 50px;
+    padding-inline: 5px;
+    width: 300px;
+    height: 30px;
+    background-color: aqua;
+}
+
+.slidecontainer input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance:none;
+    height: 20px;
+    width: 20px;
+    background-color: #050542 ;
+    border-radius: 30px;
+}
+
